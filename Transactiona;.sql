@@ -60,18 +60,25 @@ BEGIN
 /* Add the amount to complete the fund transfer process */
         UPDATE bankAccounts
         SET Balance = Balance + 1000
-        WHERE AccountNo = 202302; 
+        WHERE AccountNo = 202302; /* Brendon Account No. */
 
-            SAVE TRANSACTION FundTransfer;
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
-
-
-/* Aldous current balance is 10000 and he tries to withdraw an amount of 11,000 */
+          
+            SAVE TRANSACTION FundTransfer;
+/* Aldous current balance is 10,000 and he tries to withdraw an amount of 11,000 */
         UPDATE bankAccounts
         SET Balance = Balance - 1000
         WHERE AccountNo = 202301; /* Aldous Account No. */
-
+            
+            /* Do the T-SQL*/
+                DECLARE @Balance INT;
+                    SET @Balance = (
+                        SELECT Balance
+                        FROM bankAccounts 
+                        WHERE AccountNo = 202301
+                        ); 
+                            
 
 
 
