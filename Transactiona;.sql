@@ -45,6 +45,7 @@ VALUES(
 );
 
 
+
 /* Display status of bankAccounts Table */
 SELECT * FROM bankAccounts;
 
@@ -70,7 +71,7 @@ BEGIN
             SAVE TRANSACTION FundTransfer;
 /* Aldous current balance is 10,000 and he tries to withdraw an amount of 11,000 */
         UPDATE bankAccounts
-        SET Balance = Balance - 1000
+        SET Balance = Balance - 11000
         WHERE AccountNo = 202301; /* Aldous Account No. */
             
             /* Do the T-SQL*/
@@ -92,3 +93,12 @@ BEGIN
                                 END
     COMMIT
 END
+
+SELECT * FROM bankAccounts;
+
+/*If we execute multiple times with this transactional statement, the amount of Aldous's balance is still 0
+ while brendon is increasing + 1000 of his balance on every execution*/
+
+
+
+
