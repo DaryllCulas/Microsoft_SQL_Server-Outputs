@@ -55,7 +55,23 @@ BEGIN
 
         UPDATE bankAccounts 
         SET Balance = Balance - 1000
-        WHERE AccountNo = 202301; 
+        WHERE AccountNo = 202301; /* Aldous Account No. */
+
+/* Add the amount to complete the fund transfer process */
+        UPDATE bankAccounts
+        SET Balance = Balance + 1000
+        WHERE AccountNo = 202302; 
+
+            SAVE TRANSACTION FundTransfer;
+
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Aldous current balance is 10000 and he tries to withdraw an amount of 11,000 */
+        UPDATE bankAccounts
+        SET Balance = Balance - 1000
+        WHERE AccountNo = 202301; /* Aldous Account No. */
+
 
 
 
