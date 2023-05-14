@@ -26,7 +26,8 @@ INSERT INTO bankAccounts(
     AccountNo,
     AccountName,
     Balance
-)VALUES(
+)
+VALUES(
     202301,
     'Aldous',
     10000
@@ -36,7 +37,8 @@ INSERT INTO bankAccounts(
     AccountNo,
     AccountName,
     Balance
-)VALUES(
+)
+VALUES(
     202302,
     'Brendon',
     10000
@@ -78,9 +80,15 @@ BEGIN
                         FROM bankAccounts 
                         WHERE AccountNo = 202301
                         ); 
-                            
 
-
-
+            /*Check the balance if sufficient to the amount being withdrawn */
+                            IF @Balance >= 0
+                                BEGIN
+                                    SAVE TRANSACTION FundWithdraw
+                                END
+                            ELSE IF @Balance < 0
+                                BEGIN
+                                    ROLLBACK TRANSACTION FundTransfer
+                                END
     COMMIT
 END
