@@ -76,10 +76,8 @@ BEGIN
             
             /* Do the T-SQL*/
                 DECLARE @Balance INT;
-                    SET @Balance = (
-                        SELECT Balance
-                        FROM bankAccounts 
-                        WHERE AccountNo = 202301
+                    SET @Balance = ( 
+                        SELECT Balance FROM bankAccounts WHERE AccountNo = 202301
                         ); 
 
             /*Check the balance if sufficient to the amount being withdrawn */
