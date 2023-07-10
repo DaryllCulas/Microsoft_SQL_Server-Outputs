@@ -40,21 +40,21 @@ SELECT * FROM Grades;
 
 SELECT students.studentID, students.studentName, Grades.CourseID, Grades.Course, Grades.Grade
 FROM students
-INNER JOIN Grades ON students.studentID = Grades.studentID;
+INNER JOIN Grades ON students.studentID = Grades.CourseID;
 
 SELECT students.studentID, students.studentName, Grades.CourseID, Grades.Course, Grades.Grade
 FROM students
-LEFT JOIN Grades ON students.studentID = Grades.studentID;
-
-
-SELECT students.studentID, students.studentName, Grades.CourseID, Grades.Course, Grades.Grade
-FROM students
-RIGHT JOIN Grades ON students.studentID = Grades.studentID;
+LEFT JOIN Grades ON students.studentID = Grades.CourseID;
 
 
 SELECT students.studentID, students.studentName, Grades.CourseID, Grades.Course, Grades.Grade
 FROM students
-FULL OUTER JOIN Grades ON students.studentID = Grades.studentID;
+RIGHT JOIN Grades ON students.studentID = Grades.CourseID;
+
+
+SELECT students.studentID, students.studentName, Grades.CourseID, Grades.Course, Grades.Grade
+FROM students
+FULL OUTER JOIN Grades ON students.studentID = Grades.CourseID;
 
 
 
