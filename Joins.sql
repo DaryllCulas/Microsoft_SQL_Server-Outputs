@@ -32,8 +32,7 @@ INSERT INTO Grades (studentID, Course, Grade)
 VALUES (2023001, 'Math', '85'),
        (2023002, 'Science', '92'),
        (2023003, 'English', '78'),
-       (2023004, 'History', '89'),
-       (2023005, 'TVL', '95');
+       (2023004, 'History', '89');
 
 
 SELECT * FROM Grades;
